@@ -2,8 +2,10 @@
 // Adapted from Core Java, vol.1, by Horstmann & Cornell
 	package video;
 	import javax.swing.*;
-	import java.awt.*;
-	import java.util.Random;
+import javax.swing.plaf.basic.BasicButtonListener;
+
+import java.awt.*;
+import java.util.Random;
 	
 class Frame extends JFrame {
 	  	GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
@@ -16,7 +18,8 @@ class Frame extends JFrame {
 		setSize(width/2,height/2); // default size is 0,0
 		setLocation(width/4,height/4); // default is 0,0 (top left corner)
 		this.setRandBackColor();
-		
+		JButton setFreq = new JButton("Set Frequency");
+		BasicButtonListener m = new BasicButtonListener(setFreq);
 	}
 	
 	public void setRandBackColor(){
