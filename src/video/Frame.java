@@ -3,6 +3,7 @@
 	package video;
 	import javax.swing.*;
 	import java.awt.*;
+	import java.util.Random;
 	
 class Frame extends JFrame {
 	  	GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
@@ -10,14 +11,20 @@ class Frame extends JFrame {
 		int height = gd.getDisplayMode().getHeight();
 		
 	public Frame() {
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setTitle("My Empty Frame");
 		setSize(width/2,height/2); // default size is 0,0
 		setLocation(width/4,height/4); // default is 0,0 (top left corner)
-		setBackground(Color.white);
+		this.setRandBackColor();
+		
 	}
 	
-	public static void main(String[] args) {
-		JFrame f = new Frame();
-		f.setVisible(true);
+	public void setRandBackColor(){
+		Random rand = new Random();
+	    int r= rand.nextInt(255);
+	    int g= rand.nextInt(255);
+	    int b= rand.nextInt(255);
+		Color c = new Color(r,g,b);
+		this.getContentPane().setBackground(c);
 	}
 }
